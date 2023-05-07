@@ -2,11 +2,37 @@
     <head>
         <title>Rock</title>
         <!-- Link to your script file(s) and CSS in here somewhere -->
+        <link href="./styles.css" rel="stylesheet">
+        <script src="./scripts.js"></script>
     </head>
     <body>
 
     <!-- Your interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
-
+    <div>
+      <input type="radio" name="gameType" value="rps" checked /> RPS
+      <input type="radio" name="gameType" value="rpsls" /> RPSLS
+    </div>
+    <div>
+      <input type="radio" name="gameMode" value="singlePlayer" checked /> Single Player
+      <input type="radio" name="gameMode" value="multiPlayer" /> Multiplayer
+    </div>
+    <div>
+      <select id="playerSelection" disabled>
+        <option value="rock">Rock</option>
+        <option value="paper">Paper</option>
+        <option value="scissors">Scissors</option>
+      </select>
+    </div>
+    <div>
+      <button id="startGame" disabled>Start Game</button>
+      <button id="playAgain" hidden>Play Again</button>
+    </div>
+    <div id="gameResult" hidden>
+      <h2>Result: <span id="result"></span></h2>
+      <p>Your choice: <span id="playerChoice"></span></p>
+      <p>Computer's choice: <span id="computerChoice"></span></p>
+    </div>
+    <script src="./scripts.js"></script>
     </body>
 </html>
