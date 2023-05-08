@@ -9,21 +9,31 @@
     <body>
 
     <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
+    <h1>Rock-Paper-Scissors Game</h1>
     <div>
-      <input type="radio" name="gameType" value="rps" checked /> RPS
-      <input type="radio" name="gameType" value="rpsls" /> RPSLS
-      <input type="radio" name="gameType" value="opponent" /> Play against an opponent
+      <input type="radio" name="gameSelector" value="rpsChosen" checked> Rock-Paper-Scissors
+      <input type="radio" name="gameSelector" value="rpslsChosen"> Rock-Paper-Scissors-Lizard-Spock
     </div>
     <div>
-      <button id="playGame" disabled>Play</button>
-      <button id="startOver" hidden>Start Over</button>
+      <input type="checkbox" name="rpsOpponentChoice" id="rpsOpponentChoice"> Play against an opponent
     </div>
-    <div id="gameResult" hidden>
-      <h2>Result: <span id="result"></span></h2>
-      <p>Your choice: <span id="playerChoice"></span></p>
-      <p>Computer's choice: <span id="computerChoice"></span></p>
+    <div id="rpsChoices" class="choices">
+      <p>Choose your move:</p>
+      <input type="radio" name="rpsChoice" value="rock" checked> Rock
+      <input type="radio" name="rpsChoice" value="paper"> Paper
+      <input type="radio" name="rpsChoice" value="scissors"> Scissors
     </div>
+    <div id="rpslsChoices" class="choices">
+      <p>Choose your move:</p>
+      <input type="radio" name="rpslsChoice" value="rock" checked> Rock
+      <input type="radio" name="rpslsChoice" value="paper"> Paper
+      <input type="radio" name="rpslsChoice" value="scissors"> Scissors
+      <input type="radio" name="rpslsChoice" value="lizard"> Lizard
+      <input type="radio" name="rpslsChoice" value="spock"> Spock
+    </div>
+    <button id="playButton">Play</button>
+    <div id="resultText"></div>
     <script src="./scripts.js"></script>
+    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
     </body>
 </html>
