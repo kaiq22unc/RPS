@@ -150,6 +150,3 @@ app.get("*", (req, res) => {
                   res.status(404).send("404 NOT FOUND");
 })
 
-const server=app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
