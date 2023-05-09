@@ -49,15 +49,19 @@ if (gameSelector === 'rpsChosen') {
 }else {
   gameType = "rpsls"
 }
+if(!rpsOpponentChoice){
+  var resultString = "Your Choice: " + playerChoice;
+}else{
 document.getElementById('resultHeader').style.display = 'block';
 var opponentChoice = getOpponentChoice(gameSelector);
 // Call determineWinner() and store the result in a variable
 var resultString = determineWinner(playerChoice, opponentChoice);
-
+}
 // Create a string that includes the player's choice and the result
 //var resultString = 'You chose ' + playerChoice + ' and your opponent chose ' + opponentChoice + '. Result: ' + result;
 
 // Set the content of an HTML element with the result string
+document.getElementById('resultHeader').style.display = 'block';
 document.getElementById('resultText').innerHTML = resultString;
 //document.getElementById('resultText').style.display = 'block'
 //return result;
@@ -139,4 +143,14 @@ function determineWinner(playerChoice, opponentChoice) {
     var result = 'You lose!';
   }
   return "You chose " + playerChoice + " and your opponent chose " + opponentChoice + ". Result: " + result;
+}
+
+function showRules() {
+  var gameSelector = document.querySelector('input[name="gameSelector"]:checked').value;
+
+  if (gameSelector === 'rpsChosen') {
+    alert('Rock-Paper-Scissors Rules: \n\nRock beats scissors\nScissors beats paper\nPaper beats rock');
+  } else if (gameSelector === 'rpslsChosen') {
+    alert('Rock-Paper-Scissors-Lizard-Spock Rules: \n\nScissors cuts paper\nPaper covers rock\nRock crushes lizard\nLizard poisons Spock\nSpock smashes scissors\nScissors decapitates lizard\nLizard eats paper\nPaper disproves Spock\nSpock vaporizes rock\nRock crushes scissors');
+  }
 }
