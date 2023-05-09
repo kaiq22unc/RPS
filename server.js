@@ -63,7 +63,7 @@ const app = express()
 const port = args.port || args.p || process.env.PORT || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
 //
-import { rps, rpsls } from "./public/lib/rpsls.js";
+import { rps, rpsls } from "./lib/rpsls.js";
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
