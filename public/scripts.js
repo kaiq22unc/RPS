@@ -2,7 +2,7 @@
 // check out the coin-server example from a previous COMP 426 semester.
 // https://github.com/jdmar3/coinserver
 
-function playButton() {
+async function playButton() {
   // Get the game selector value
   var gameSelector = document.querySelector('input[name="gameSelector"]:checked').value;
   var rpsOpponentChoice = document.getElementById('rpsOpponentChoice').checked;
@@ -18,8 +18,10 @@ function playButton() {
     document.getElementById('rpslsChoices').style.display = 'block';
   }
 
+
   // Show the Play Again button
-  document.getElementById('playButton').innerHTML = '<button type="button" onclick="playAgain()">Play Again</button>';
+document.getElementById('playButton').innerHTML = '<button type="button" onclick="playButton()">Play Again</button> <button type="button" onclick="resetPage()">Reset</button>';
+  //document.getElementById('playButton').innerHTML = '<button type="button" onclick="resetPage()">Reset</button>';
 
   // Hide the Result section (if visible)
   //document.getElementById('resultHeader').style.display = 'none';
@@ -41,12 +43,26 @@ function playButton() {
   //  opponentChoice = '';
 //  }
 
+let gameType = "rps"
+if (gameSelector === 'rpsChosen') {
+  gameType = "rps";
+}else {
+  gameType = "rpsls"
+}
+document.getElementById('resultHeader').style.display = 'block';
+
+let baseurl = window.location.href.concat('/app/')
+let url = baseurl.concat(gameType.concat('/play/'))
+let oppCheck = document.getElementById('rpsOpponentChoice').checked
+if (oppCheck) { url = url.concat(playerChoice) }
+let response = await fetch(url)
+let result = await response.json()
+
 // Determine the winner
-fetch('/app/rps/play/' + playerChoice)
+fetch(url)
   .then(response => response.json())
   .then(data => {
     // Display the result
-    document.getElementById('resultHeader').style.display = 'block';
     document.getElementById('resultText').innerHTML = data;
   })
   .catch(error => {
@@ -54,9 +70,9 @@ fetch('/app/rps/play/' + playerChoice)
   });
 
 
-  // Display the result
+  // Display the result header
   document.getElementById('resultHeader').style.display = 'block';
-  document.getElementById('resultText').innerHTML = result;
+  document.getElementById('resultText').innerHTML = resultString;
 }
 
 function resetPage() {
@@ -69,7 +85,17 @@ function resetPage() {
   // Hide result
   document.getElementById('resultHeader').style.display = 'none';
   document.getElementById('resultText').innerHTML = '';
+  document.querySelector('div:nth-of-type(1)').style.display = 'block';
+  document.querySelector('div:nth-of-type(2)').style.display = 'block';
+
+  document.getElementById('playButton').innerHTML = '<button type="button" onclick="playButton()">Play Again</button>';
+  // Hide the appropriate choices element(s) based on the game selector value
+    document.getElementById('rpsChoices').style.display = 'none';
+    document.getElementById('rpslsChoices').style.display = 'none';
+
 }
+
+
 function getOpponentChoice(gameSelector) {
   // Generate a random choice for the opponent
   var choices = ['rock', 'paper', 'scissors'];
