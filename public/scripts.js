@@ -59,4 +59,8 @@ function changeLabel(elementID, textReplacement) {
     document.getElementById(elementID).innerHTML = textReplacement;
 }
 
-document.getElementById("playButton").addEventListener("click", playButton);
+document.getElementById("playButton").addEventListener("click", playButton());
+
+function resetPage() {
+    window.location.reload();
+}

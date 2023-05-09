@@ -31,9 +31,17 @@
       <input type="radio" name="rpslsChoice" value="lizard"> Lizard
       <input type="radio" name="rpslsChoice" value="spock"> Spock
     </div>
-    <button id="playButton">Play</button>
-    <div id="resultText"></div>
-    <script src="./scripts.js"></script>
+    <div id="playButton" >
+      <button type="button" onclick="playButton()">Play Game</button>
+      <button type="button" onclick="resetPage()">Reset Page</button>
+    </div>
+    <div id="resultDiv">
+      <h2 id="resultHeader" style="display: none;">Result: </h2>
+      <label id="resultText">
+           <br>
+      </label>
+      <br>
+    </div>
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
     </body>
 </html>
