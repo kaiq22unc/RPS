@@ -53,23 +53,23 @@ if(!rpsOpponentChoice){
   var resultString = "Your Choice: " + playerChoice;
 }else{
 document.getElementById('resultHeader').style.display = 'block';
-var opponentChoice = getOpponentChoice(gameSelector);
+//var opponentChoice = getOpponentChoice(gameSelector);
 // Call determineWinner() and store the result in a variable
-var resultString = determineWinner(playerChoice, opponentChoice);
-}
+      //var resultString = determineWinner(playerChoice, opponentChoice);
+
 // Create a string that includes the player's choice and the result
 //var resultString = 'You chose ' + playerChoice + ' and your opponent chose ' + opponentChoice + '. Result: ' + result;
 
 // Set the content of an HTML element with the result string
-document.getElementById('resultHeader').style.display = 'block';
-document.getElementById('resultText').innerHTML = resultString;
+        //document.getElementById('resultText').innerHTML = resultString;
 //document.getElementById('resultText').style.display = 'block'
 //return result;
 
-let baseurl = window.location.href.concat('/app/')
+let baseurl = window.location.href.concat('app/')
 let url = baseurl.concat(gameType.concat('/play/'))
 let oppCheck = document.getElementById('rpsOpponentChoice').checked
 if (oppCheck) { url = url.concat(playerChoice) }
+  document.getElementById('resultText').innerHTML = url
 let response = await fetch(url)
 let result = await response.json()
 
@@ -77,6 +77,8 @@ let result = await response.json()
 resultString = 'You chose ' + result.player
 if (oppCheck) {
     resultString = resultString + ' and your opponent chose ' + result.opponent + '. Result: ' + result.result;
+}
+  //document.getElementById('resultText').innerHTML = resultString
 }
 
   // Display the result header and text
@@ -112,7 +114,7 @@ function resetPage() {
 }
 
 
-function getOpponentChoice(gameSelector) {
+/*function getOpponentChoice(gameSelector) {
   // Generate a random choice for the opponent
   var choices = ['rock', 'paper', 'scissors'];
   if (gameSelector === 'rpslsChosen') {
@@ -143,7 +145,7 @@ function determineWinner(playerChoice, opponentChoice) {
     var result = 'You lose!';
   }
   return "You chose " + playerChoice + " and your opponent chose " + opponentChoice + ". Result: " + result;
-}
+}*/
 
 function showRules() {
   var gameSelector = document.querySelector('input[name="gameSelector"]:checked').value;

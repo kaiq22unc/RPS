@@ -68,7 +68,6 @@ import { rps, rpsls } from "./lib/rpsls.js";
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
 // Check endpoint
 app.get('/app/', (req, res) => {
   res.status(200).send('200 OK');
