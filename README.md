@@ -19,4 +19,6 @@ CSS
 Installation
 
 Clone the repository:
-```git clone https://github.com/kaiq22unc/rps.git```
+```
+git clone https://github.com/kaiq22unc/rps.git
+```
