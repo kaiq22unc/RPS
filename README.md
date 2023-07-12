@@ -46,3 +46,4 @@ Choose your move (rock, paper, or scissors) by clicking on the corresponding but
 The computer will generate its move, and the game will display the result (win, lose, or draw).
 Play multiple rounds to compete against the computer and test your luck!
 
+
