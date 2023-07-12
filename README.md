@@ -38,3 +38,11 @@ Open the game in your web browser:
 ```
 http://localhost:5000
 ```
+
+## Usage
+
+Open the game in your web browser.
+Choose your move (rock, paper, or scissors) by clicking on the corresponding button.
+The computer will generate its move, and the game will display the result (win, lose, or draw).
+Play multiple rounds to compete against the computer and test your luck!
+
