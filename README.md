@@ -1,8 +1,8 @@
-Rock-Paper-Scissors Game
+## Rock-Paper-Scissors Game
 
 This project is a single-player version of the classic rock-paper-scissors game developed using JavaScript, Express.js, and HTML. It allows users to play the game against the computer and enjoy an interactive gaming experience.
 
-Features
+## Features
 
 Single-player gameplay against the computer.
 User-friendly interface for making game moves and viewing game results.
@@ -16,9 +16,25 @@ Express.js
 HTML
 CSS
 
-Installation
+## Installation
 
 Clone the repository:
 ```
 git clone https://github.com/kaiq22unc/rps.git
+```
+Navigate to the project directory:
+```
+cd rps.js
+```
+Install the dependencies:
+```
+npm install
+```
+Start the application:
+```
+node server.js
+```
+Open the game in your web browser:
+```
+http://localhost:5000
 ```
